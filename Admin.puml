@@ -1,0 +1,26 @@
+@startmindmap
+'https://plantuml.com/mindmap-diagram
+
+
+title Admin Procedure
+
+* Admin
+** Login
+***  Activate
+**** CRUD Instructor
+**** CRUD Student
+**** CRUD Report
+**** CRUD Announcement
+**** CRUD Certificate
+**** CRUD PATHWAY
+** Register
+
+
+header
+Admin Workflow
+endheader
+
+
+
+
+@endmindmap

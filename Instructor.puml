@@ -1,0 +1,21 @@
+@startmindmap
+'https://plantuml.com/mindmap-diagram
+
+
+title Instructor Procedure
+
+* Instructor
+** Login/register
+*** Approval waiting
+**** Activate
+***** setCourse
+****** setQuizbyhimself
+****** setQuizFromService
+******* make assignment
+***** create Announcement
+
+legend right
+  Short
+  legend
+endlegend
+@endmindmap

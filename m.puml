@@ -1,0 +1,24 @@
+@startuml
+
+skinparam packageStyle rectangle
+skinparam packageBorderColor #0000FF
+skinparam packageTitleBackgroundColor #0000FF
+skinparam packageTitleForegroundColor #FFFFFF
+
+package user {
+    class Admin {
+        id: int
+        userName: String
+        password: String
+        phoneNo: String
+        email: String
+        dateOfBirth: Date
+        createdAt: Date
+        status: ActiveORINActive
+        roleOfSystem: Role
+    }
+}
+
+
+
+@enduml

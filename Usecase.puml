@@ -1,0 +1,148 @@
+@startuml
+!theme aws-orange
+skinparam map{
+BackgroundColor  Black
+ NodeShape rectangle
+    NodeBackgroundColor #FFFF00
+    NodeBorderColor #000000
+    NodeBorderThickness 2
+    NodeFontSize 14
+    LabelColor #FF0000
+        LabelFontSize 12
+        LabelStyle italic
+}
+
+skinparam enum{
+    BackgroundColor green
+}
+
+package Administration{
+map Admin {
+
+id => int
+userName=> String
+password =>String
+phoneNo => String
+email =>String
+dateOfBirth => Date
+createdAt => Date
+status => ActiveORINActive
+roleOfSystem  => Role
+}
+}
+
+package ServiceForCourse{
+ map Quiz{
+ id => long
+    Questions =>  List<Question>
+ }
+
+ map Question{
+    id =>long
+    QuestionTitle => String
+    OptionOne =>String
+    OptionTwo =>String
+    OptionThree => String
+    Answer=> Option
+ }
+}
+
+package user{
+
+map Student{
+id => long
+StudentID => String
+userName=> String
+password =>String
+phoneNo => String
+email =>String
+Address => String
+dateOfBirth => Date
+createdAt => Date
+status => ActiveORINActive
+roleOfSystem  => Role
+courses => List<Course>
+}
+
+map Instructor{
+id => long
+InstructorID => String
+userName=> String
+password =>String
+dateOfBirth => Date
+phoneNo => String
+email =>String
+status => ActiveORINActive
+roleOfSystem  => Role
+createdAt => DATE
+Address => String
+courses => List<Course>
+}
+}
+
+
+package ContentOnPlatForm{
+map Courses{
+id => long
+name => String
+coursesId => String
+Description => String
+createdAt =>Date
+category => String
+InstructorID => Instructor
+Chapters => List<Chapter>
+}
+
+map Chapter{
+id => long
+Title => String
+Content => File
+CoursesId => Courses: CoursesId
+ComPercentage => Integer
+}
+}
+
+package TrackingTool{
+map PATHWAY{
+ id => long
+ category => String
+ CoursesId => List<Courses>
+}
+map Progress{
+    id => long
+    Courses_Id  => CoursesId
+    ChapterProgress => Map<Chapter, ComPercentage>
+    Pathway => Map<PathwayId, Map<CoursesId,CourseCompletePercentage>>
+}
+
+}
+package Utilities{
+map Announcement{
+   id =>long
+   Title => String
+   Description => String
+   createdAt =>Date
+   creatorId => Admin,Instructor
+}
+  map certificate{
+  id=> long
+  certificateId =>String
+  createdAt => Date
+  content => String
+
+}
+}
+package Enum{
+enum Role{
+ADMIN
+INSTRUCTOR
+STUDENT
+}
+
+enum ActiveORINActive{
+ACTIVE
+INACTIVE
+}
+}
+
+@enduml

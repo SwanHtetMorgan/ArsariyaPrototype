@@ -1,0 +1,42 @@
+@startuml
+
+!define RECTANGLE_STYLE << (Rectangle,LightBlue) >>
+!define DATABASE_STYLE << (Database,LightGreen) >>
+
+skinparam rectangle {
+    BackgroundColor LightBlue
+    BorderColor Black
+    BorderThickness 1
+    RoundCorner 10
+}
+
+skinparam database {
+    BackgroundColor LightGreen
+    BorderColor Black
+    BorderThickness 1
+    RoundCorner 10
+}
+
+rectangle Client
+rectangle DataTransferObject
+rectangle MiddlewareBySpringSecurity
+rectangle ControllerLayer
+rectangle ServiceLayer
+rectangle Repositories
+
+database SystemDatabase{
+    rectangle tableForEntities
+    rectangle jointTable
+}
+
+DataTransferObject -up-> Client
+MiddlewareBySpringSecurity -up-> DataTransferObject
+MiddlewareBySpringSecurity -down-> ControllerLayer
+ControllerLayer -up-> MiddlewareBySpringSecurity
+ControllerLayer -down-> ServiceLayer
+ServiceLayer -down-> Repositories
+Repositories -up-> ServiceLayer
+Repositories -down-> SystemDatabase
+SystemDatabase -up-> Repositories
+
+@enduml

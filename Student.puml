@@ -1,0 +1,20 @@
+@startmindmap
+'https://plantuml.com/mindmap-diagram
+
+
+title StudentWorkflow title
+
+* Student
+** Login/Register
+*** Activate
+**** Choose and Set Pathway
+***** Enroll the Courses In Pathway
+****** Take ChapterEnd Test and Complete
+****** Repeat the remaining courses
+
+
+
+legend right
+  can enroll 5 courses per 2 week
+endlegend
+@endmindmap
